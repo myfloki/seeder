@@ -3,14 +3,11 @@
     "Desc": "Flokicoin Mainnet",
     "Id": "0xd9b4bef9",
     "Port": 15212,
-    "Pver": 70001,
+    "Pver": 70016,
     "DNSName": "seed.example.com",
     "TTL": 600,
-    "InitialIPs": [],
+    "InitialIPs": ["1.2.3.4"],
     "Seeders": [
-        "seed2.example.com",
-        "seed3.example.com",
-        "seed4.example.com",
-        "seed5.example.com"
+        "seed2.example.com"
     ]
 }
