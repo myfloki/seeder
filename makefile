@@ -3,7 +3,7 @@ SCRIPT=./scripts/dns_stub_control.sh
 stop:
 	docker compose down -t 0
 start:
-	docker compose up -d
+	docker compose up -d --pull always
 	docker logs -f flokicoin-seeder
 restart: stop start
 
