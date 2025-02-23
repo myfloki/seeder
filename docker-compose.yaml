@@ -6,7 +6,8 @@ services:
     hostname: flokicoin-seeder
     container_name: flokicoin-seeder
     ports:
-      - "53:53"
+      - "53:53/tcp"
+      - "53:53/udp"
     volumes:
       - ./log:/var/log/dnsseed
       - ./config:/config
