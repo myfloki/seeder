@@ -1,0 +1,15 @@
+
+services:
+
+  dnsseed:
+    image: ghcr.io/myfloki/dnsseed:latest
+    hostname: flokicoin-seeder
+    container_name: flokicoin-seeder
+    ports:
+      - "53:53"
+    volumes:
+      - ./log:/var/log/dnsseed
+      - ./config:/config
+    restart: on-failure
+    stop_grace_period: 1m
+    command: /config/sample.json
