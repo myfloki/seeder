@@ -18,7 +18,7 @@ status() {
 # Function to backup configuration
 backup() {
     if [ ! -f "$BACKUP_CONF" ]; then
-        sudo cp "$RESOLVED_CONF" "$BACKUP_CONF"
+        cp "$RESOLVED_CONF" "$BACKUP_CONF"
         echo "✅ Backup created: $BACKUP_CONF"
     else
         echo "⚠️  Backup already exists."
@@ -28,7 +28,7 @@ backup() {
 # Function to restore configuration from backup
 restore() {
     if [ -f "$BACKUP_CONF" ]; then
-        sudo cp "$BACKUP_CONF" "$RESOLVED_CONF"
+        cp "$BACKUP_CONF" "$RESOLVED_CONF"
         echo "🔄 Configuration restored from backup."
         restart
     else
@@ -42,8 +42,8 @@ disable() {
     if grep -q '^DNSStubListener=no' "$RESOLVED_CONF"; then
         echo "✅ DNSStubListener is already disabled."
     else
-        sudo sed -i 's/^#DNSStubListener=.*/DNSStubListener=no/' "$RESOLVED_CONF"
-        sudo sed -i 's/^DNSStubListener=yes/DNSStubListener=no/' "$RESOLVED_CONF"
+        sed -i 's/^#DNSStubListener=.*/DNSStubListener=no/' "$RESOLVED_CONF"
+        sed -i 's/^DNSStubListener=yes/DNSStubListener=no/' "$RESOLVED_CONF"
         echo "🚫 DNSStubListener disabled."
         restart
     fi
@@ -55,7 +55,7 @@ enable() {
     if grep -q '^DNSStubListener=yes' "$RESOLVED_CONF"; then
         echo "✅ DNSStubListener is already enabled."
     else
-        sudo sed -i 's/^DNSStubListener=no/DNSStubListener=yes/' "$RESOLVED_CONF"
+        sed -i 's/^DNSStubListener=no/DNSStubListener=yes/' "$RESOLVED_CONF"
         echo "🔄 DNSStubListener enabled."
         restart
     fi
@@ -63,7 +63,7 @@ enable() {
 
 # Function to restart systemd-resolved
 restart() {
-    sudo systemctl restart systemd-resolved
+    systemctl restart systemd-resolved
     echo "🔄 systemd-resolved restarted."
 }
 
