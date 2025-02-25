@@ -2,7 +2,7 @@
 services:
 
   # dnsseed:
-  #   image: ghcr.io/myfloki/dnsseed:latest
+  #   image: ghcr.io/myfloki/go-dnsseed:latest
   #   hostname: flokicoin-seeder
   #   container_name: flokicoin-seeder
   #   ports:
