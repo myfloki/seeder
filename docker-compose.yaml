@@ -1,24 +1,24 @@
 
 services:
 
-  # dnsseed:
-  #   image: ghcr.io/myfloki/go-dnsseed:latest
-  #   hostname: flokicoin-seeder
-  #   container_name: flokicoin-seeder
-  #   ports:
-  #     - "53:53/tcp"
-  #     - "53:53/udp"
-  #   volumes:
-  #     - ./log:/var/log/dnsseed
-  #     - ./config:/config
-  #   command: /config/sample.json
-
-
   dnsseed:
-    image: ghcr.io/myfloki/dnsseed:latest
+    image: ghcr.io/myfloki/go-dnsseed:latest
     hostname: flokicoin-seeder
     container_name: flokicoin-seeder
     ports:
       - "53:53/tcp"
       - "53:53/udp"
-    command: dnsseed -h seed.example.com -n ns1.example.com -m seed@example.com -s 1.2.3.4
+    volumes:
+      - ./log:/var/log/dnsseed
+      - ./config:/config
+    command: /config/flokicoin.json
+
+
+  # dnsseed:
+  #   image: ghcr.io/myfloki/dnsseed:latest
+  #   hostname: flokicoin-seeder
+  #   container_name: flokicoin-seeder
+  #   ports:
+  #     - "53:53/tcp"
+  #     - "53:53/udp"
+  #   command: dnsseed -h dnsseed.myfloki.com -n ns1.myfloki.com -m seed@myfloki\.com -s xx.xx.xx.xx -s xx.xx.xx.xx -s xx.xx.xx.xx
