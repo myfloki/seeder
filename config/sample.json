@@ -9,5 +9,9 @@
     "InitialIPs": ["1.2.3.4"],
     "Seeders": [
         "seed2.example.com"
-    ]
+    ],
+    "Cloudflare": {
+        "Enabled": false,
+        "ApiToken": "xxxxxx"
+    }
 }

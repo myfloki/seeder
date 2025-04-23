@@ -28,3 +28,7 @@ restore_config:
 
 restart_resolver:
 	@$(SCRIPT) restart
+
+upgrade:
+	-docker compose pull
+	docker compose up -d
