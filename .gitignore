@@ -1,2 +1,4 @@
-log/*.log
-log/*.log.gz
+.env
+data/**
+!data/**/.keep
+!data/**/*.sample
