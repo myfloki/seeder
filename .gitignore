@@ -1,4 +1,4 @@
-!data/**/*.sample
-!data/**/.keep
 .env
 data/**
+!data/**/.keep
+!data/**/*.sample
