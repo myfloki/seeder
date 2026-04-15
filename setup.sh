@@ -55,6 +55,15 @@ if [ ! -f .env ]; then
     echo "IMAGE_NAME=ghcr.io/myfloki/seeder:latest" > .env
 fi
 
+# Copy all .sample files to their actual names if they dont exist
+find . -name "*.sample" | while read -r sample_file; do
+    real_file="${sample_file%.sample}"
+    if [ ! -f "$real_file" ]; then
+        echo "📄 Creating $real_file from sample..."
+        cp "$sample_file" "$real_file"
+    fi
+done
+
 echo ""
 echo "🎉 Setup finished successfully!"
 echo "------------------------------------------------------------------------"
